@@ -1,0 +1,6 @@
+export const ACTIONS = {
+    SIGN_IN: 'SIGN_IN',
+    SIGN_OUT: 'SIGN_OUT',
+    AUTH_SUCCESS: 'AUTH_SUCCESS',
+    AUTH_FAILURE: 'AUTH_FAILURE'
+}

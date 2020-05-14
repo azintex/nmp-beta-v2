@@ -18,7 +18,7 @@ function ShowAlert(props) {
 function FormPage(props) {
 
     useEffect(() => {
-        let {from} = props.location.state || {from : {pathname: '/'}};
+        let {from} = props.location.state || {from : {pathname: '/dashboard'}};
         if(props.isAuthenticated) {
             props.history.replace(from);
         }
@@ -35,7 +35,7 @@ function FormPage(props) {
             <div className='container'>
                 {props.message ? <ShowAlert alertMessage={props.message} /> : null}
                 <div className='row justify-content-center'>
-                    <div className='col-4 align-self-center'>
+                    <div className='col-4'>
                         <form onSubmit={handleSubmit}>
                             <div className='form-group'>
                                 <label htmlFor='username'>Username</label>
@@ -50,7 +50,7 @@ function FormPage(props) {
                             </div>
                         </form>
                     </div>
-                </div>
+                </div>    
             </div>
         </>
         )

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import {useStore} from 'react-redux';
 
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
+const DefaultLayout = React.lazy(() => import('./components/DefaultLayout/DefaultLayot'));
 const Subscriber = React.lazy(() => import('./components/Subscriber'));
 const SignIn = React.lazy(() => import('./components/SignIn'));
 
@@ -17,7 +18,7 @@ export default function App() {
         <Router>
             <React.Suspense fallback={loading()}>
                 <Switch>
-                    <PrivateRoute exact path='/' component={Dashboard} />
+                    <Route exact path='/' component={DefaultLayout} />
                     <Route path='/signin' component={SignIn} />
                     <PrivateRoute path='/dashboard' component={Dashboard} />
                     <PrivateRoute path='/subscriber' component={Subscriber} />            

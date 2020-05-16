@@ -5,10 +5,16 @@ import PhoneNumber from '../_addons/PhoneNumber';
 
 export default function Subscriber() {
     return(
-        <form>
-            <FullName />
-            <BirthDate />
-            <PhoneNumber />
-        </form>
+        <div className='container'>
+            <div className='row'>
+                <div className='col-md-12 col-sm-6 col-lg-12'>
+                    <form>
+                        <FullName />
+                        <BirthDate />
+                        <PhoneNumber />
+                    </form>
+                </div>
+            </div>
+        </div>
     )
 }

@@ -12,7 +12,6 @@ export default function Layout({...props}) {
         <div className='container'>
             <LayoutHeader />
             <LayoutSidebar />
-            <LayoutFooter />
         </div>
     )
 }

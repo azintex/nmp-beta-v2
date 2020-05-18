@@ -1,28 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default function LayoutSidebar() {
+export default function LayoutSidebar(props) {
+
+    console.log(props);
+    
     return(
-        <div className='row'>
-            <div className='col-md-3 col-lg-2 d-md-block sidebar collapse'>
-                <div className='sidebar-sticky pt-3'>
-                    <ul className='nav flex-column'>
-                        <li className='nav-item'>
-                            <Link className='nav-link' to='/subscriber'>Subscriber</Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link className='nav-link' to='/user'>
-                                <i className='feather feather-home'></i>User</Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link className='nav-link' to='/home'>Home</Link>
-                        </li>
-                        <li className='nav-item'>
-                            <Link className='nav-link' to='/somewhere'>Somewhere</Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div className='col-3'>
+            <ul className='nav flex-column'>
+                <li className='nav-item'><Link className='nav-link' to='/subscriber'>Subscriber</Link></li>
+                <li className='nav-item'><Link className='nav-link' to='/user'>User</Link></li>
+                <li className='nav-item'><Link className='nav-link' to='/home'>Home</Link></li>
+            </ul>
         </div>
     )
 }

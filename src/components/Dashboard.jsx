@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import DefaultLayout from './DefaultLayout/DefaultLayot';
 
-export default function Dashboard() {
+export default function Dashboard(props) {
     return(
-        <div>
-            <h3>Dashboard</h3>
-        </div>
+        <DefaultLayout {...props}/>
     )
 }

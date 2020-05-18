@@ -7,7 +7,7 @@
   "author": "Uzdenov Haji",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --host 192.168.1.41",
+    "start": "webpack-dev-server --open --hot",
     "build": "webpack --mode production"
   },
   "dependencies": {

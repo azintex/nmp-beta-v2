@@ -3,25 +3,25 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import {useStore} from 'react-redux';
 
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
-const DefaultLayout = React.lazy(() => import('./components/DefaultLayout/DefaultLayot'));
-const Subscriber = React.lazy(() => import('./components/Subscriber'));
+//const Subscriber = React.lazy(() => import('./components/Subscriber'));
+import Subscriber from './components/Subscriber';
 const SignIn = React.lazy(() => import('./components/SignIn'));
 
-const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
+const loading = () => 
+    <div className='spinner-border' role='status'>
+        <span className='sr-only'>Loading...</span>
+    </div>
 
-//import SignIn from './components/SignIn';
-//import Dashboard from './components/Dashboard';
-//import Subscriber from './components/Subscriber';
 
 export default function App() {
     return(
         <Router>
             <React.Suspense fallback={loading()}>
                 <Switch>
-                    <Route exact path='/' component={DefaultLayout} />
+                    <PrivateRoute exact path='/' component={Dashboard} />
                     <Route path='/signin' component={SignIn} />
                     <PrivateRoute path='/dashboard' component={Dashboard} />
-                    <PrivateRoute path='/subscriber' component={Subscriber} />            
+                    <PrivateRoute path='/subscriber' component={Subscriber} />
                 </Switch>
             </React.Suspense>
         </Router>

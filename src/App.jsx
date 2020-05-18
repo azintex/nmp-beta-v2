@@ -3,12 +3,11 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import {useStore} from 'react-redux';
 
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
-//const Subscriber = React.lazy(() => import('./components/Subscriber'));
-import Subscriber from './components/Subscriber';
+const Subscriber = React.lazy(() => import('./components/Subscriber'));
 const SignIn = React.lazy(() => import('./components/SignIn'));
 
 const loading = () => 
-    <div className='spinner-border' role='status'>
+    <div className='spinner-border mx-auto' role='status'>
         <span className='sr-only'>Loading...</span>
     </div>
 

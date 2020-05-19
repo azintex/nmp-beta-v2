@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default function Evaluation(props) {
+    return(
+        <div className="progress">
+            <div className="progress-bar progress-bar-animated progress-bar-striped bg-info" role="progressbar" style={{width: '25%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{`${props.currentStage}>`}</div>
+        </div>
+    )
+}

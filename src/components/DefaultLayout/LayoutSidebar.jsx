@@ -11,6 +11,7 @@ export default function LayoutSidebar(props) {
                 <li className='nav-item'><Link className='nav-link' to='/subscriber'>Subscriber</Link></li>
                 <li className='nav-item'><Link className='nav-link' to='/user'>User</Link></li>
                 <li className='nav-item'><Link className='nav-link' to='/home'>Home</Link></li>
+                <li className='nav-item'><Link className='nav-link' to='/connection'>New connection</Link></li>
             </ul>
         </div>
     )

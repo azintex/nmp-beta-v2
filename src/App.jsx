@@ -5,6 +5,7 @@ import {useStore} from 'react-redux';
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
 const Subscriber = React.lazy(() => import('./components/Subscriber'));
 const SignIn = React.lazy(() => import('./components/SignIn'));
+const NewConnection = React.lazy(() => import('./components/Connection/NewConnection'));
 
 const loading = () => 
     <div className='spinner-border mx-auto' role='status'>
@@ -20,6 +21,7 @@ export default function App() {
                     <PrivateRoute exact path='/' component={Dashboard} />
                     <Route path='/signin' component={SignIn} />
                     <PrivateRoute path='/dashboard' component={Dashboard} />
+                    <PrivateRoute path='/connection' component={NewConnection} />
                     <PrivateRoute path='/subscriber' component={Subscriber} />
                 </Switch>
             </React.Suspense>

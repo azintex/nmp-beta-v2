@@ -3,74 +3,35 @@ import React, {useState, useEffect} from 'react';
 export default function FullName(props) {
     
     const [fullName, setFullName] = useState({name: '', lastName: '', patronymic: ''});
+    const [firstLetter, setFirstLetter] = useState('');
 
-    const [name, setName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [patronymic, setPatronymic] = useState('');
+    // Pattern mask /^[A-ZÜİÖĞIƏÇŞ][a-züöğıəçş\s-]*$/gi
+    const pattern = /^[A-ZÜİÖĞIƏÇŞ][a-züöğıəçş\s-]*$/g
 
-    function handleInput(e) {
-            switch (e.currentTarget.name) {
-                case 'name':
-                    if(e.target.value.match(/[a-züöğıəçş]$/gi) !== null) {
-                        console.log(e.target.value);
-                        setFullName({name: e.target.value, lastName: fullName.lastName, patronymic: fullName.patronymic});
-                        //setName(e.target.value);
-                    }
-                break;
-                case 'lastName':
-                    if(e.target.value.match(/[a-züöğıəçş]/gi) !== null) {
-                        setLastName(e.target.value);
-                    }
-                break;
-                case 'patronymic':
-                    if(e.target.value.match(/[a-züöğıəçş]/gi) !== null) {
-                        setPatronymic(e.target.value);
-                    }
-                break;
-                default:
-                    break;
-            }
-    }
+   function handleChange(evnt) {
 
-    function handleKeyDown(k) {
-        if(k.keyCode == 8) {
-            switch (k.currentTarget.name) {
-                case 'name':
-                    if(fullName.name.length == 1) {
-                        setFullName({name: '', ...fullName });
-                    }
-                break;
-                case 'lastName':
-                    if(lastName.length == 1) {
-                        setLastName('');
-                    }
-                break;
-                case 'patronymic':
-                    if(patronymic.length == 1) {
-                        setPatronymic('');
-                    }
-                default:
-                    break;
-            }
+        if(evnt.target.value.match(pattern)) {
+            setFullName(Object.assign({}, fullName, {[evnt.target.name]: evnt.target.value}));
+        }            
+        
+        if( fullName[evnt.target.name].length == 1 && evnt.target.value.length == 0) {
+            setFullName(Object.assign({}, fullName, {[evnt.target.name]: ''}));
         }
     }
-
-    console.log(fullName)
 
     return (
         <>
             <div className='form-group'>
-                <label htmlFor='name'>Ad</label>
-                
-                <input className='form-control' type='text' name='name' id='name' value={fullName.name} onChange={handleInput} placeholder='m.ü. Elşad' required />
+                <label htmlFor='name'>Ad</label>                
+                <input className='form-control' type='text' name='name' id='name' value={fullName.name} onChange={e => handleChange(e)} placeholder='m.ü. Elşad' required />
             </div>
             <div className='form-group'>
                 <label htmlFor='lastName'>Soyad</label>
-                <input className='form-control' type='text' name='lastName' id='name' value={fullName.lastName} onKeyDown={handleKeyDown} onInput={handleInput} onChange={(e) => setFullName({name: fullName.name, lastName: e.target.value, patronymic: fullName.patronymic})} placeholder='m.ü. Əliyev' required />
+                <input className='form-control' type='text' name='lastName' id='name' value={fullName.lastName} onChange={e => handleChange(e)} placeholder='m.ü. Əliyev' required />
             </div>
             <div className='form-group'>
                 <label htmlFor='patronymic'>Atasının adı</label>
-                <input className='form-control' type='text' name='patronymic' id='patronymic' value={fullName.patronymic} onKeyDown={handleKeyDown} onInput={handleInput} onChange={(e) => setFullName({name: fullName.name, lastName: fullName.lastName, patronymic: e.target.value})} placeholder='m.ü. Sabir oğlu' required />
+                <input className='form-control' type='text' name='patronymic' id='patronymic' value={fullName.patronymic} onChange={e => handleChange(e)} placeholder='m.ü. Sabir oğlu' required />
             </div>
         </>
     )

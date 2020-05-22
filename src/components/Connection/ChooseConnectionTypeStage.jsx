@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {toStage} from '../../_actions/connection';
+import {toStage} from '../../_actions/stage';
 
 function Content(props) {
 
@@ -24,8 +24,8 @@ function Content(props) {
                 </div>
             </div>
                 <div className='col-3'>
-                    <button type='button' className='btn btn-outline-secondary mr-2' onClick={() => props.toStage({stage: {to: props.stage.from, current: props.stage.current}})}>Back</button>
-                    <button type='button' className='btn btn-outline-primary' disabled={connectionType.value !== '' ? false : true} onClick={() => props.toStage({to: 'customer', current: 'connection', from: 'connection'})}>Next</button>
+                    <button type='button' className='btn btn-outline-secondary mr-2' onClick={() => props.toStage({connection: !props.stage.connection, initial: !props.stage.initial})}>Back</button>
+                    <button type='button' className='btn btn-outline-primary' disabled={connectionType.value !== '' ? false : true} onClick={() => props.toStage({connection: !props.stage.connection, customer: !props.stage.customer})}>Next</button>
                 </div>
         </div>
     )
@@ -33,7 +33,7 @@ function Content(props) {
 
 function mapStateToProps(state) {
     return {
-        stage: state.connection.stage
+        stage: state.stage
     }
 }
 

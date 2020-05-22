@@ -13,3 +13,10 @@ export const CONNECTION = {
     SUBSCRIBER_TYPE: 'SUBSCRIBER_TYPE',
     CONNECTION_TYPE: 'CONNECTION_TYPE'
 }
+
+export const STAGE = {
+    TO: 'TO',
+    FROM: 'FROM',
+    CURRENT: 'CURRENT',
+    INITIAL: 'INITIAL'
+}

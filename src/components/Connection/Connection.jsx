@@ -1,24 +1,33 @@
 import React, {useState} from 'react';
-import {connect, useStore} from 'react-redux';
-import {toStage, fromStage} from '../../_actions/connection';
-
+import {connect} from 'react-redux';
 import DefaultLayout from '../DefaultLayout/DefaultLayot';
-
 import Stages from './Stages';
 import ChooseSusbcriberTypeStage from './ChooseSubscriberTypeStage';
 import ChooseConnectionTypeStage from './ChooseConnectionTypeStage';
+import Customer from './Customer';
 
 function ConnectionBody(props) {
 
-    //console.log(useStore().getState().connection);
+    let stage;
+
+    if(props.stage.initial) {
+        stage = <ChooseSusbcriberTypeStage />
+    }
+
+    if(props.stage.connection) {
+        stage = <ChooseConnectionTypeStage />
+    }
+
+    if(props.stage.customer) {
+        stage = <Customer />
+    }
+
 
     return(
         <div className='col-9'>
             <div className='card'>                
                 <Stages stage={'Subscriber'} />
-                {props.stage.initial ? <ChooseSusbcriberTypeStage /> : null}
-                {props.stage.current == 'connection' ? <ChooseConnectionTypeStage /> : null}
-                {props.stage.current == 'customer' ? <h3>Customer</h3> : null}
+                {stage}
             </div>
         </div>
     )
@@ -26,7 +35,7 @@ function ConnectionBody(props) {
 
 function mapStateToProps(state) {
     return{
-        stage: state.connection.stage
+        stage: state.stage
     }
 }
 

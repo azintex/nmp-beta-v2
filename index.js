@@ -7,7 +7,7 @@ import 'bootstrap';
 import './styles.scss';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
-store.subscribe(() => console.log(store.getState().connection));
+store.subscribe(() => console.log(store.getState().stage));
 
 render(<Provider store={store}>
     <App />

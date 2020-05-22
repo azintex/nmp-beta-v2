@@ -1,4 +1,4 @@
-import {ACTIONS} from '../_constants/index';
+import {AUTH} from '../_constants/index';
 import cfg from 'config';
 
 
@@ -16,14 +16,14 @@ export function signIn(credentials) {
 
     function success(payload) {
         return {
-            type: ACTIONS.AUTH_SUCCESS,
+            type: AUTH.SUCCESS,
             payload
         }
     }
 
     function failure(message) {
         return {
-            type: ACTIONS.AUTH_FAILURE,
+            type: AUTH.FAILURE,
             message
         }
     }
@@ -31,6 +31,6 @@ export function signIn(credentials) {
 
 export function signOut() {
     return {
-        type: ACTIONS.SIGN_OUT
+        type: AUTH.SIGN_OUT
     }
 }

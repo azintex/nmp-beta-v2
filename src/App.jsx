@@ -35,7 +35,7 @@ function PrivateRoute({component: Component, isAuthenticated: isAuthenticated, .
 
     return (
         <Route {...rest} render={routeProps => {
-            return store.success ? (<Component {...routeProps} />) : <Redirect to={{pathname: '/signin', state: {from: {...routeProps.location}}}} />;
+            return store.authentication.success ? (<Component {...routeProps} />) : <Redirect to={{pathname: '/signin', state: {from: {...routeProps.location}}}} />;
         } }/>
     )
 }

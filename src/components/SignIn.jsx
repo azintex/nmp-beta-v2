@@ -58,8 +58,8 @@ function FormPage(props) {
 
 function mapStateToProps(state) {
     return {
-        message: state.message,
-        isAuthenticated: state.success
+        message: state.authentication.message,
+        isAuthenticated: state.authentication.success
     }
 }
 

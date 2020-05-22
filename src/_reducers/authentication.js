@@ -1,13 +1,15 @@
-import {ACTIONS} from '../_constants/index';
+import {AUTH} from '../_constants/index';
 
-export function authenticationReducer(state = {success: false}, action) {
+let initState = {};
+
+export function authenticationReducer(state = initState, action) {
     switch (action.type) {
-        case ACTIONS.AUTH_SUCCESS:
-            return Object.assign({}, {...action.payload});
-        case ACTIONS.AUTH_FAILURE:
-            return Object.assign({}, {state, ...action.message});
-        case ACTIONS.SIGN_OUT:
-            return Object.assign({}, {success: false});
+        case AUTH.SUCCESS:
+            return Object.assign({}, state, {...action.payload});
+        case AUTH.FAILURE:
+            return Object.assign({}, state, {...action.message});
+        case AUTH.SIGN_OUT:
+            return Object.assign({}, initState);
         default:
             return state;
     }

@@ -11,7 +11,7 @@ export default function LayoutHeader(props) {
     return(
         <nav className='navbar navbar-light bg-light'>
           <span className="navbar-brand mb-0 h1">NMP</span>
-          <button className='btn btn-outline-primary ' type='button' onClick={handleSignOut}>Sign out</button>
+          <button className='btn btn-outline-secondary' type='button' onClick={handleSignOut}>Sign out</button>
         </nav>
     )
 }

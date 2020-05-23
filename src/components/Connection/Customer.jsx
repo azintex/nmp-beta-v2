@@ -27,10 +27,11 @@ function Content(props) {
         <div>
             <div className='card-body'>
                 <form>
-                    <h6 className='card-title'>PERSONAL INFORMATION</h6>
+                    <div className='card-title'>Personal information</div>            
                         <FullName />
                         <BirthDate />
-                    <h6 className='card-title'>CONTACTS</h6>
+                        <hr></hr>
+                    <div className='card-title'>Contacts information</div>
                         <div className='input-group mb-3'>
                             <PhoneNumber name={`phoneNumber1`} />
                             <div className='input-group-append'>

@@ -1,33 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import DefaultLayout from '../DefaultLayout/DefaultLayot';
-import Stages from './Stages';
+import Stagebar from './Stagebar';
 import ChooseSusbcriberTypeStage from './ChooseSubscriberTypeStage';
 import ChooseConnectionTypeStage from './ChooseConnectionTypeStage';
 import Customer from './Customer';
 
 function ConnectionBody(props) {
 
-    let stage;
+    //const [stageLabels, setLabel] = useState(['New Connection']);
+
+    let currentStage;
+    let stageLabels = props.stage.initial ? ['New connection', 'Subscriber'] : ['New connection', 'Subscriber', 'Connection']
 
     if(props.stage.initial) {
-        stage = <ChooseSusbcriberTypeStage />
+        currentStage = <ChooseSusbcriberTypeStage />;
+        //setLabel('Subscriber');
     }
 
     if(props.stage.connection) {
-        stage = <ChooseConnectionTypeStage />
+        currentStage = <ChooseConnectionTypeStage />;
+        //setLabel([...stageLabels, 'Connection']);
     }
 
     if(props.stage.customer) {
-        stage = <Customer />
+        currentStage = <Customer />;
+        //setLabel([...stageLabels, 'Customer']);
     }
 
 
     return(
         <div className='col-9'>
             <div className='card'>                
-                <Stages stage={'Subscriber'} />
-                {stage}
+                <Stagebar stageLabels={stageLabels} />
+                {currentStage}
             </div>
         </div>
     )

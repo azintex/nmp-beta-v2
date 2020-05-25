@@ -11,7 +11,6 @@ function ConnectionBody(props) {
     //const [stageLabels, setLabel] = useState(['New Connection']);
 
     let currentStage;
-    let stageLabels = props.stage.initial ? ['New connection', 'Subscriber'] : ['New connection', 'Subscriber', 'Connection']
 
     if(props.stage.initial) {
         currentStage = <ChooseSusbcriberTypeStage />;
@@ -30,9 +29,9 @@ function ConnectionBody(props) {
 
 
     return(
-        <div className='col-9'>
+        <div className='col-10'>
             <div className='card'>                
-                <Stagebar stageLabels={stageLabels} />
+                <Stagebar />
                 {currentStage}
             </div>
         </div>

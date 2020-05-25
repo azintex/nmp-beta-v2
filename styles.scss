@@ -1,5 +1,6 @@
 body {
     font-size: .875rem;
+    background-color: #465362;
   }
   
   .feather {
@@ -107,7 +108,36 @@ body {
     color: whitesmoke;
 }
 
-$breadcrumb-divider: quote(">");
+.id-card-header-container {
+  margin: 0;
+  text-align: right;
+}
+
+.id-card-label {
+  margin: 0;
+  font: 0.8em sans-serif;
+  color: silver;
+}
+
+.id-card-photo {
+  background: gray;
+}
+
+.id-card-header1 {
+  color: #3F826D;
+}
+
+.id-card-header2 {
+  color: #3F826D;
+}
+
+.id-serial-num {  
+  margin-left: 0.2em;
+  /*display: inline;*/
+  text-align: right;
+}
+
+//$breadcrumb-divider: quote(">");
 
 
 @import '~bootstrap/scss/bootstrap';

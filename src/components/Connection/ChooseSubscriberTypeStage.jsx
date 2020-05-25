@@ -5,7 +5,11 @@ import {toStage} from '../../_actions/stage';
 function Content(props) {
 
     const [subscriberType, setSubscriberType] = useState({private: false, company: false, value: ''});
-    //console.log(props);
+    let params = {
+        connection: !props.stage.connection,
+        initial: !props.stage.initial,
+        labels: [...props.stage.labels, 'Subscriber']
+    }
 
     return(
         <div>
@@ -22,7 +26,7 @@ function Content(props) {
             </div>
             <div className='col-3'>
                 <button type='button' className='btn btn-outline-primary' 
-                    disabled={subscriberType.value !== '' ? false : true} onClick={() => props.toStage({connection: !props.stage.connection, initial: !props.stage.initial})}>Next</button>
+                    disabled={subscriberType.value !== '' ? false : true} onClick={() => props.toStage(params)}>Next</button>
             </div>
         </div>
     )

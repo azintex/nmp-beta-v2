@@ -5,6 +5,11 @@ import {toStage} from '../../_actions/stage';
 function Content(props) {
 
     const [connectionType, setConnectionType] = useState({pppoe: false, ipoe: false, staticIp: false, value: ''});
+    let params = {
+        connection: !props.stage.connection,
+        customer: !props.stage.customer,
+        labels: [...props.stage.labels, 'Connection type']
+    }
 
     return(
         <div>
@@ -25,7 +30,7 @@ function Content(props) {
             </div>
                 <div className='col-3'>
                     <button type='button' className='btn btn-outline-secondary mr-2' onClick={() => props.toStage({connection: !props.stage.connection, initial: !props.stage.initial})}>Back</button>
-                    <button type='button' className='btn btn-outline-primary' disabled={connectionType.value !== '' ? false : true} onClick={() => props.toStage({connection: !props.stage.connection, customer: !props.stage.customer})}>Next</button>
+                    <button type='button' className='btn btn-outline-primary' disabled={connectionType.value !== '' ? false : true} onClick={() => props.toStage(params)}>Next</button>
                 </div>
         </div>
     )

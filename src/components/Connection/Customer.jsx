@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {toStage} from '../../_actions/stage';
 
 import FullName from '../../_addons/FullName';
+import IdAzeOld from '../../_addons/IdAzeOld';
 import BirthDate from '../../_addons/BirthDate';
 import PhoneNumber from '../../_addons/PhoneNumber';
 
@@ -28,7 +29,7 @@ function Content(props) {
             <div className='card-body'>
                 <form>
                     <div className='card-title'>Personal information</div>            
-                        <FullName />
+                        <IdAzeOld />
                         <BirthDate />
                         <hr></hr>
                     <div className='card-title'>Contacts information</div>

@@ -1,9 +1,7 @@
 import {STAGE} from '../_constants/index';
 
 let initState = {
-    //to: '',
-    //from: '',
-    //current: 'subscriber',
+    labels: ['Connection'],
     initial: true,
     connection: false,
     customer: false

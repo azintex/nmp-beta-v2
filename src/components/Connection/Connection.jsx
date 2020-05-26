@@ -4,7 +4,7 @@ import DefaultLayout from '../DefaultLayout/DefaultLayot';
 import Stagebar from './Stagebar';
 import ChooseSusbcriberTypeStage from './ChooseSubscriberTypeStage';
 import ChooseConnectionTypeStage from './ChooseConnectionTypeStage';
-import Customer from './Customer';
+import {Customer2} from './Customer2';
 
 function ConnectionBody(props) {
 
@@ -24,7 +24,7 @@ function ConnectionBody(props) {
     }
 
     if(props.stage.customer) {
-        currentStage = <Customer />;
+        currentStage = <Customer2 />;
         //setLabel([...stageLabels, 'Customer']);
     }
 

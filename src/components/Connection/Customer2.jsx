@@ -1,4 +1,5 @@
 import React from 'react';
+import Cleave from 'cleave.js/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -28,6 +29,10 @@ const SignupSchema = Yup.object().shape({
   rate: Yup.number()
     .required('Boş ola bilməz')
 });
+
+function CleaveInput({field, form, ...props}) {
+  return <Cleave options={{date: true}} className='form-control' {...form} {...props} />;
+}
 
 export const Customer2 = () => (
   <div>
@@ -96,7 +101,7 @@ export const Customer2 = () => (
             <Field name='rate' className={'form-control' + (errors.rate && touched.rate ? ' is-invalid': '')} />
             <ErrorMessage name='rate' component='div' className='invalid-feedback' />
           </div>
-          <button type='submit'>Submit</button>
+          <button type='submit' className='btn btn-primary'>Submit</button>
         </Form>
       )}
     </Formik>

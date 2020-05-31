@@ -1,5 +1,6 @@
 import React from 'react';
 import Cleave from 'cleave.js/react';
+import 'cleave.js/src/addons/phone-type-formatter.az';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -30,8 +31,12 @@ const SignupSchema = Yup.object().shape({
     .required('Boş ola bilməz')
 });
 
-function CleaveInput({field, form, ...props}) {
-  return <Cleave options={{date: true}} className='form-control' {...form} {...props} />;
+function CleaveInputDate({field, form, ...props}) {
+  return <Cleave options={{date: true}} className='form-control' {...field} {...props} />;
+}
+
+function CleaveInputPhone({field, form, ...props}) {
+  return <Cleave options={{phone: true, phoneRegionCode: 'AZ'}} className='form-control' {...field} {...props} />
 }
 
 export const Customer2 = () => (
@@ -88,7 +93,7 @@ export const Customer2 = () => (
           </div>
           <div className='form-group'>
             <label htmlFor='phone'>Phone number</label>
-            <Field name='phone' className={'form-control' + (errors.phone && touched.phone ? ' is-invalid': '')} />
+            <Field name='phone' component={CleaveInputPhone} />
             <ErrorMessage name='phone' component='div' className='invalid-feedback' />
           </div>
           <div className='form-group'>
@@ -99,6 +104,11 @@ export const Customer2 = () => (
           <div className='form-group'>
             <label htmlFor='rate'>Rate</label>
             <Field name='rate' className={'form-control' + (errors.rate && touched.rate ? ' is-invalid': '')} />
+            <ErrorMessage name='rate' component='div' className='invalid-feedback' />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='rate'>Connection date</label>
+            <Field name='connectionDate' component={CleaveInputDate} />
             <ErrorMessage name='rate' component='div' className='invalid-feedback' />
           </div>
           <button type='submit' className='btn btn-primary'>Submit</button>

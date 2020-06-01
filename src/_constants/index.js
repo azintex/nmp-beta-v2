@@ -20,3 +20,8 @@ export const STAGE = {
     CURRENT: 'CURRENT',
     INITIAL: 'INITIAL'
 }
+
+export const NEW_SUBSCRIBER = {
+    FAILURE: 'FAILURE',
+    SUCCESS: 'SUCCESS'
+}

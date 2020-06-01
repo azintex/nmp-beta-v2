@@ -6,7 +6,7 @@ export default function LayoutSidebar(props) {
     return(
         <div className='col-3'>
             <ul className='nav flex-column'>
-                <li className='nav-item'><Link className='nav-link' to='/subscriber'>Subscriber</Link></li>
+                <li className='nav-item'><Link className='nav-link' to='/subscribers'>Subscribers</Link></li>
                 <li className='nav-item'><Link className='nav-link' to='/connection'>Connection</Link></li>
             </ul>
         </div>

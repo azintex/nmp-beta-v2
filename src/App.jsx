@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import {useStore} from 'react-redux';
 
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
-const Subscriber = React.lazy(() => import('./components/Subscriber'));
+const Subscribers = React.lazy(() => import('./components/Subscribers/Subscribers'));
 const SignIn = React.lazy(() => import('./components/SignIn'));
 const Connection = React.lazy(() => import('./components/Connection/Connection'));
 
@@ -22,7 +22,7 @@ export default function App() {
                     <Route path='/signin' component={SignIn} />
                     <PrivateRoute path='/dashboard' component={Dashboard} />
                     <PrivateRoute path='/connection' component={Connection} />        
-                    <PrivateRoute path='/subscriber' component={Subscriber} />
+                    <PrivateRoute path='/subscribers' component={Subscribers} />
                 </Switch>
             </React.Suspense>
         </Router>

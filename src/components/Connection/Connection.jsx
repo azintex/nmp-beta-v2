@@ -7,25 +7,20 @@ import ChooseConnectionTypeStage from './ChooseConnectionTypeStage';
 import {Customer2} from './Customer2';
 
 function ConnectionBody(props) {
-
-    //const [stageLabels, setLabel] = useState(['New Connection']);
-
+    
     let currentStage;
     let stageLabels = props.stage.initial ? ['New connection', 'Subscriber'] : ['New connection', 'Subscriber', 'Connection']
 
     if(props.stage.initial) {
         currentStage = <ChooseSusbcriberTypeStage />;
-        //setLabel('Subscriber');
     }
 
     if(props.stage.connection) {
         currentStage = <ChooseConnectionTypeStage />;
-        //setLabel([...stageLabels, 'Connection']);
     }
 
     if(props.stage.customer) {
         currentStage = <Customer2 />;
-        //setLabel([...stageLabels, 'Customer']);
     }
 
 

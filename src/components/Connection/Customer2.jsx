@@ -4,6 +4,8 @@ import 'cleave.js/src/addons/phone-type-formatter.az';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+import {IdOldCleave} from './_inputs/IdOld';
+
 const SignupSchema = Yup.object().shape({
   idNumber: Yup.string()
     .required('Boş ola bilməz')
@@ -65,6 +67,11 @@ export const Customer2 = () => (
             <label htmlFor='idNumber'>ID number</label>
             <Field name='idNumber' className={'form-control' + (errors.idNumber && touched.idNumber ? ' is-invalid': '')} />
             <ErrorMessage name='idNumber' component='div' className='invalid-feedback' />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='idOld'>Old ID series</label>
+            <Field name='idOld' component={OldIdCleave} />
+            <ErrorMessage name='idOld' component='div' className='invalid-feedback' />
           </div>
           <div className='form-group'>
             <label htmlFor='firstName'>First name</label>

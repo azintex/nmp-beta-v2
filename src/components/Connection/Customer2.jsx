@@ -70,7 +70,7 @@ export const Customer2 = () => (
           </div>
           <div className='form-group'>
             <label htmlFor='idOld'>Old ID series</label>
-            <Field name='idOld' component={OldIdCleave} />
+            <Field name='idOld' component={IdOldCleave} />
             <ErrorMessage name='idOld' component='div' className='invalid-feedback' />
           </div>
           <div className='form-group'>
